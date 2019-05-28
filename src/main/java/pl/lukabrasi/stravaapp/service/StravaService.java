@@ -19,10 +19,8 @@ public class StravaService {
 
     public String getAuthenticate() {
         RestTemplate restTemplate = getRestTemplate();
-        String url = "https://www.strava.com/oauth/authorize/?client_id=" + clientId + "&redirect_uri=" + redirectUri + "&redirect_uri=" + redirectUri + "&response_type=code&approval_prompt=auto&scope=activity:read";
-
+        String url = "https://www.strava.com/oauth/authorize/?client_id=" + clientId + "&redirect_uri=" + redirectUri + "&response_type=code&approval_prompt=auto&scope=activity:read";
         String accountDto = restTemplate.getForObject(url, String.class);
-        System.out.println(accountDto);
         return accountDto;
     }
 
