@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import pl.lukabrasi.stravaapp.service.StravaService;
@@ -18,7 +19,9 @@ public class StravaController {
         this.stravaService = stravaService;
     }
 
-    @GetMapping("/")
+
+
+    @GetMapping("/strava")
     @ResponseBody
     public String getStats(Model model)  {
         String authenticate = stravaService.getAuthenticate();
@@ -27,7 +30,13 @@ public class StravaController {
         return stravaService.getAuthenticate();
     }
 
+    @PostMapping("/session")
+    @ResponseBody
+    public String logged(Model model)  {
 
+
+        return "index";
+    }
 
 
 
